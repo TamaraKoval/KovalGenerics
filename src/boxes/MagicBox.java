@@ -29,13 +29,13 @@ public class MagicBox<T> {
             if (items[i] == null) {
                 k++;
             }
-            if (k > 0) {
-                throw new Exception("Коробка не заполнена, осталось заполнить ячеек: " + k);
-            } else {
-                Random random = new Random();
-                int randomInt = random.nextInt(items.length);
-                return items[randomInt];
-            }
+        }
+        if (k > 0) {
+            throw new Exception("Коробка не заполнена, осталось заполнить ячеек: " + k);
+        } else {
+            Random random = new Random();
+            int randomInt = random.nextInt(items.length);
+            return items[randomInt];
         }
     }
 }
