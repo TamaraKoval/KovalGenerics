@@ -1,5 +1,6 @@
 package boxes;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MagicBox<T> {
@@ -13,7 +14,12 @@ public class MagicBox<T> {
         this.items = (T[]) new Object[maxItems];
     }
 
-    public boolean add (T item) {
+    @Override
+    public String toString() {
+        return ("В коробке сейчас лежат: " + Arrays.toString(items));
+    }
+
+    public boolean add(T item) {
         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
                 items[i] = item;
@@ -23,7 +29,7 @@ public class MagicBox<T> {
         return false;
     }
 
-    public T pick() throws Exception {
+    public void pick() throws Exception {
         int k = 0;
         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
@@ -35,7 +41,7 @@ public class MagicBox<T> {
         } else {
             Random random = new Random();
             int randomInt = random.nextInt(items.length);
-            return items[randomInt];
+            System.out.println("Магическая коробка решила вернуть тебе: " + items[randomInt]);
         }
     }
 }
